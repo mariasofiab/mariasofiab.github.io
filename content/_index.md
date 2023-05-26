@@ -92,61 +92,61 @@ sections:
   #         description: Taught electronic engineering and researched semiconductor physics.
   #   design:
   #     columns: '2'
-  - block: accomplishments
-    content:
-      # Note: `&shy;` is used to add a 'soft' hyphen in a long heading.
-      title: 'Updates'
-      subtitle:
-      # Date format: https://wowchemy.com/docs/customization/#date-format
-      date_format: Jan 2006
-      # Accomplishments.
-      #   Add/remove as many `item` blocks below as you like.
-      #   `title`, `organization`, and `date_start` are the required parameters.
-      #   Leave other parameters empty if not required.
-      #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
-      items:
-        - certificate_url: #https://www.coursera.org
-          date_end: ''
-          date_start: '2023-05-23'
-          description: 'Computer Lab University of Cambridge'
-          organization: '' #Coursera
-          #organization_url: https://www.coursera.org
-          title: 'Talk: Improving learning with noisy labels in two possibile scenarios'
-          url: 'http://talks.cam.ac.uk/talk/index/201580'
-        - certificate_url: #https://www.coursera.org
-          date_end: '2023-05-31'
-          date_start: '2023-02-01'
-          #description: 'Visiting Period University of Cambridge- Computer Lab'
-          organization: '' # Coursera
-          #organization_url: https://www.coursera.org
-          title: 'Visiting period University of Cambridge- Computer Lab'
-          url: ''
-        - certificate_url: #https://www.edx.org
-          date_end: '2023-01-19'
-          date_start: '2023-01-09'
-          description: 'Visiting Chris Schwiegelshohn Aarhus University'
-          organization:  '' #edX
-          #organization_url: https://www.edx.org
-          title: 'Visiting Chris Schwiegelshohn Aarhus University'
-          #url: https://www.edx.org/professional-certificate/uc-berkeleyx-blockchain-fundamentals
-        - certificate_url: https://areeweb.polito.it/disma-excellence/events_2022/GiornateUMI/index.html
-          date_end: '2022-11-26'
-          date_start: '2022-11-24'
-          description: 'Attending Workshop "Matematica per l'Intelligenza Artificiale e il Machine Learning - Giovani Ricercatori"'
-          organization: 'Politecnico di Torino'
-          organization_url: https://areeweb.polito.it/disma-excellence/events_2022/GiornateUMI/index.html
-          title: 'Talk  A topological description of loss surfaces via Betti Numbers charac- terization'
-          url: https://areeweb.polito.it/disma-excellence/events_2022/GiornateUMI/index.html
-        - certificate_url: #https://areeweb.polito.it/disma-excellence/events_2022/GiornateUMI/index.html
-          date_end: '2022-11-18'
-          date_start: '2022-05-20'
-          description: 'Student Research Internship at Amazon, Luxembourg TEN Search Team '
-          organization: '' #Politecnico di Torino'
-          #organization_url: https://areeweb.polito.it/disma-excellence/events_2022/GiornateUMI/index.html
-          title: 'Student Research Internship at Amazon'
-          url: '' 
-    design:
-      columns: '2'
+  # - block: accomplishments
+  #   content:
+  #     # Note: `&shy;` is used to add a 'soft' hyphen in a long heading.
+  #     title: 'Updates'
+  #     subtitle:
+  #     # Date format: https://wowchemy.com/docs/customization/#date-format
+  #     date_format: Jan 2006
+  #     # Accomplishments.
+  #     #   Add/remove as many `item` blocks below as you like.
+  #     #   `title`, `organization`, and `date_start` are the required parameters.
+  #     #   Leave other parameters empty if not required.
+  #     #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
+  #     items:
+  #       - certificate_url: #https://www.coursera.org
+  #         date_end: ''
+  #         date_start: '2023-05-23'
+  #         description: 'Computer Lab University of Cambridge'
+  #         organization: '' #Coursera
+  #         #organization_url: https://www.coursera.org
+  #         title: 'Talk: Improving learning with noisy labels in two possibile scenarios'
+  #         url: 'http://talks.cam.ac.uk/talk/index/201580'
+  #       - certificate_url: #https://www.coursera.org
+  #         date_end: '2023-05-31'
+  #         date_start: '2023-02-01'
+  #         #description: 'Visiting Period University of Cambridge- Computer Lab'
+  #         organization: '' # Coursera
+  #         #organization_url: https://www.coursera.org
+  #         title: 'Visiting period University of Cambridge- Computer Lab'
+  #         url: ''
+  #       - certificate_url: #https://www.edx.org
+  #         date_end: '2023-01-19'
+  #         date_start: '2023-01-09'
+  #         description: 'Visiting Chris Schwiegelshohn Aarhus University'
+  #         organization:  '' #edX
+  #         #organization_url: https://www.edx.org
+  #         title: 'Visiting Chris Schwiegelshohn Aarhus University'
+  #         #url: https://www.edx.org/professional-certificate/uc-berkeleyx-blockchain-fundamentals
+  #       - certificate_url: https://areeweb.polito.it/disma-excellence/events_2022/GiornateUMI/index.html
+  #         date_end: '2022-11-26'
+  #         date_start: '2022-11-24'
+  #         description: 'Attending Workshop "Matematica per l'Intelligenza Artificiale e il Machine Learning - Giovani Ricercatori"'
+  #         organization: 'Politecnico di Torino'
+  #         organization_url: https://areeweb.polito.it/disma-excellence/events_2022/GiornateUMI/index.html
+  #         title: 'Talk  A topological description of loss surfaces via Betti Numbers charac- terization'
+  #         url: https://areeweb.polito.it/disma-excellence/events_2022/GiornateUMI/index.html
+  #       - certificate_url: #https://areeweb.polito.it/disma-excellence/events_2022/GiornateUMI/index.html
+  #         date_end: '2022-11-18'
+  #         date_start: '2022-05-20'
+  #         description: 'Student Research Internship at Amazon, Luxembourg TEN Search Team '
+  #         organization: '' #Politecnico di Torino'
+  #         #organization_url: https://areeweb.polito.it/disma-excellence/events_2022/GiornateUMI/index.html
+  #         title: 'Student Research Internship at Amazon'
+  #         url: '' 
+  #   design:
+  #     columns: '2'
   - block: collection
     id: posts
     content:
