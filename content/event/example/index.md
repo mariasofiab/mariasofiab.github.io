@@ -1,28 +1,28 @@
 ---
-title: Example Talk
+title: Improving learning with noisy labels in two possibile scenarios.
 
-event: Wowchemy Conference
-event_url: https://example.org
+event: #Wowchemy Conference
+event_url: http://talks.cam.ac.uk/talk/index/201580
 
-location: Wowchemy HQ
+location: Computer Lab
 address:
-  street: 450 Serra Mall
-  city: Stanford
-  region: CA
-  postcode: '94305'
-  country: United States
+  street: #450 Serra Mall
+  city: Cambridge
+  region: #CA
+  postcode: #'94305'
+  country: UK
 
-summary: An example talk using Wowchemy's Markdown slides feature.
-abstract: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellusac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam.'
+summary: '' #Improving learning with noisy labels in two possibile scenarios.
+abstract: 'Learning from data with noisy labels is a challenging problem that arises in various practical applications. Noisy data can indeed arise in various real-world problems, such as medical diagnosis, autonomous driving, fraud detection, and natural language processing. Its presence can significantly impact the accuracy and reliability of machine learning models. In this talk, we will introduce two different frameworks for improving learning with noisy labels in two possible scenarios. In the first scenario, we assume access to data labeled by multiple annotators. In the second scenario, only one label is given for each sample. For the first case, we will leverage inter-rater agreement to effectively mitigate the issue of noisy labels. In the second scenario, our framework proposes a novel approach that combines the use of class centroids and an outlier discounting strategy.'
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
-date: '2030-06-01T13:00:00Z'
-date_end: '2030-06-01T15:00:00Z'
+date: '2023-05-23 T17:00:00Z'
+date_end: '2023-05-23 T18:00:00Z'
 all_day: false
 
 # Schedule page publish date (NOT talk date).
-publishDate: '2017-01-01T00:00:00Z'
+publishDate: #'2017-01-01T00:00:00Z'
 
 authors: []
 tags: []
@@ -30,16 +30,16 @@ tags: []
 # Is this a featured talk? (true/false)
 featured: false
 
-image:
-  caption: 'Image credit: [**Unsplash**](https://unsplash.com/photos/bzdhc5b3Bxs)'
-  focal_point: Right
+#image:
+#  caption: 'Image credit: [**Unsplash**](https://unsplash.com/photos/bzdhc5b3Bxs)'
+#  focal_point: Right
 
 links:
-  - icon: twitter
-    icon_pack: fab
-    name: Follow
-    url: https://twitter.com/georgecushen
-url_code: ''
+  #- icon: 
+  #  icon_pack: fab
+  #  name: #Follow
+  #  url: http://talks.cam.ac.uk/talk/index/201580
+url_code: 'http://talks.cam.ac.uk/talk/index/201580'
 url_pdf: ''
 url_slides: ''
 url_video: ''
