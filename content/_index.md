@@ -109,7 +109,7 @@ sections:
           date_end: ''
           date_start: '2023-05-23'
           description: 'Computer Lab University of Cambridge'
-          #organization: Coursera
+          organization: '' #Coursera
           #organization_url: https://www.coursera.org
           title: 'Talk: Improving learning with noisy labels in two possibile scenarios'
           url: 'http://talks.cam.ac.uk/talk/index/201580'
@@ -117,7 +117,7 @@ sections:
           date_end: '2023-05-31'
           date_start: '2023-02-01'
           #description: 'Visiting Period University of Cambridge- Computer Lab'
-          #organization: Coursera
+          organization: '' # Coursera
           #organization_url: https://www.coursera.org
           title: 'Visiting period University of Cambridge- Computer Lab'
           url: ''
@@ -125,7 +125,7 @@ sections:
           date_end: '2023-01-19'
           date_start: '2023-01-09'
           description: 'Visiting Chris Schwiegelshohn Aarhus University'
-          #organization: edX
+          organization:  '' #edX
           #organization_url: https://www.edx.org
           title: 'Visiting Chris Schwiegelshohn Aarhus University'
           #url: https://www.edx.org/professional-certificate/uc-berkeleyx-blockchain-fundamentals
@@ -141,7 +141,7 @@ sections:
           date_end: '2022-11-18'
           date_start: '2022-05-20'
           description: 'Student Research Internship at Amazon, Luxembourg TEN Search Team '
-          #organization: 'Politecnico di Torino'
+          organization: '' #Politecnico di Torino'
           #organization_url: https://areeweb.polito.it/disma-excellence/events_2022/GiornateUMI/index.html
           title: 'Student Research Internship at Amazon'
           url: '' 
