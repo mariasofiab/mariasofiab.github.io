@@ -78,8 +78,8 @@ social:
 # Highlight the author in author lists? (true/false)
 highlight_name: true
 ---
-Hello! 
-I am my PhD at Sapienza University of Rome, specifically in the Department of Computer, Control and Management Engineering, under the guidance of Professor Fabrizio Silvestri and collaborating with the Rstless group https://rstless-research.github.io
+Hello!
+I am a PhD student at Sapienza University of Rome, specifically in the Department of Computer, Control, and Management Engineering. I'm supervised by Professor Fabrizio Silvestri and I'm part of the Rstless group (you can find more information about our group at https://rstless-research.github.io).
 My research interests include theory and applications of Machine Learning and Foundations of Machine Learning.
 Prior to this, I completed my Master's Degree in Mathematics at Sapienza University of Rome in 2019.
 {style="text-align: justify;"}
