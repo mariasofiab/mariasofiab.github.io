@@ -4,7 +4,7 @@
 # This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
 title: Maria Sofia Bucarelli # Website name
-baseURL: https://mariasofiab.github.io #https://mariasofiabucarelli.netlify.app/ #'https://example.com/' # Website URL
+baseURL: https://mariasofiabucarelli.netlify.app/ #'https://example.com/' # Website URL
 
 ############################
 ## LANGUAGE
