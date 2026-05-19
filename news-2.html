@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>News · Maria Sofia Bucarelli</title>
+  <meta name="description" content="Recent activities, talks, papers, and news from Maria Sofia Bucarelli." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ff-serif: 'Lora', Georgia, serif;
+      --ff-mono: 'DM Mono', monospace;
+      --ff-sans: system-ui, -apple-system, sans-serif;
+      --accent: #1a6b4a;
+      --accent-hover: #14573d;
+      --accent-light: #e6f3ed;
+      --text: #1a1a18;
+      --text-muted: #6b6b65;
+      --border: rgba(0,0,0,0.1);
+      --border-strong: rgba(0,0,0,0.18);
+      --bg: #ffffff;
+      --surface: #f7f7f4;
+      --card: #ffffff;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --text: #e8e8e4;
+        --text-muted: #8f8f89;
+        --border: rgba(255,255,255,0.1);
+        --border-strong: rgba(255,255,255,0.18);
+        --bg: #141412;
+        --surface: #1e1e1b;
+        --card: #1e1e1b;
+        --accent-light: #0d3323;
+      }
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--ff-sans);
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    a { color: inherit; }
+
+    .site {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    /* Nav */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 2rem;
+      border-bottom: 0.5px solid var(--border);
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .nav-name {
+      font-family: var(--ff-serif);
+      font-size: 17px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      text-decoration: none;
+      color: var(--text);
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-family: var(--ff-mono);
+      letter-spacing: 0.04em;
+      transition: color 0.15s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); }
+
+    /* Page title */
+    .page-header { margin-bottom: 3rem; }
+    .page-header h1 {
+      font-family: var(--ff-serif);
+      font-size: 26px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.4rem;
+    }
+    .page-header p { color: var(--text-muted); font-size: 14px; }
+
+    /* Tags legend */
+    .legend {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+    .news-tag {
+      display: inline-block;
+      font-family: var(--ff-mono);
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 3px;
+      cursor: default;
+    }
+    .tag-paper   { background: #dbeafe; color: #1e40af; }
+    .tag-talk    { background: #fef9c3; color: #854d0e; }
+    .tag-award   { background: #fce7f3; color: #9d174d; }
+    .tag-visit   { background: #ede9fe; color: #5b21b6; }
+    .tag-other   { background: var(--surface); color: var(--text-muted); border: 0.5px solid var(--border); }
+    .tag-review  { background: #d1fae5; color: #065f46; }
+    @media (prefers-color-scheme: dark) {
+      .tag-paper  { background: #1e3a5f; color: #93c5fd; }
+      .tag-talk   { background: #3d2e00; color: #fde68a; }
+      .tag-award  { background: #4a0d2e; color: #f9a8d4; }
+      .tag-visit  { background: #2e1a5e; color: #c4b5fd; }
+      .tag-review { background: #064e3b; color: #6ee7b7; }
+    }
+
+    /* Year groups */
+    .year-group { margin-bottom: 2.5rem; }
+    .year-heading {
+      font-family: var(--ff-mono);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    /* News items */
+    .news-list { display: flex; flex-direction: column; }
+    .news-item {
+      display: grid;
+      grid-template-columns: 70px 1fr;
+      gap: 0 1.25rem;
+      padding: 0.75rem 0;
+      border-bottom: 0.5px solid var(--border);
+      align-items: start;
+    }
+    .news-item:last-child { border-bottom: none; }
+    .news-month {
+      font-family: var(--ff-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      padding-top: 2px;
+    }
+    .news-body { font-size: 14px; line-height: 1.6; }
+    .news-body .news-tag { margin-right: 6px; vertical-align: middle; position: relative; top: -1px; }
+    .news-body a { color: var(--accent); text-decoration: none; }
+    .news-body a:hover { text-decoration: underline; }
+    .news-body p { margin-top: 0.25rem; color: var(--text-muted); font-size: 13px; }
+
+    /* Footer */
+    footer {
+      border-top: 0.5px solid var(--border);
+      padding-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 2rem;
+    }
+    footer p {
+      font-family: var(--ff-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+      font-family: var(--ff-mono);
+      font-size: 11px;
+    }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+<div class="site">
+
+  <nav>
+    <a href="index.html" class="nav-name">Maria Sofia Bucarelli</a>
+    <div class="nav-links">
+      <a href="index.html#about">About</a>
+      <a href="index.html#research">Research</a>
+      <a href="index.html#publications">Publications</a>
+      <a href="index.html#cv">CV</a>
+      <a href="news.html" class="active">News</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <h1>News &amp; Activities</h1>
+    <p>Talks, papers, visits, and other updates — most recent first.</p>
+  </div>
+
+  <div class="legend">
+    <span class="news-tag tag-paper">Paper</span>
+    <span class="news-tag tag-talk">Talk</span>
+    <span class="news-tag tag-award">Award</span>
+    <span class="news-tag tag-visit">Visit</span>
+    <span class="news-tag tag-review">Review</span>
+    <span class="news-tag tag-other">Other</span>
+  </div>
+
+  <!-- ── 2024 ── -->
+  <div class="year-group">
+    <p class="year-heading">2024</p>
+    <div class="news-list">
+
+      <div class="news-item">
+        <span class="news-month">Dec</span>
+        <div class="news-body">
+          <span class="news-tag tag-talk">Talk</span>
+          <strong>Presented at NeurIPS 2024</strong>, Vancouver, Canada.
+          <p><em>On Generalization Bounds for Projective Clustering</em> — poster presentation at the main conference.</p>
+        </div>
+      </div>
+
+      <div class="news-item">
+        <span class="news-month">Nov</span>
+        <div class="news-body">
+          <span class="news-tag tag-paper">Paper</span>
+          Paper accepted at <strong>NeurIPS 2024</strong>.
+          <p><em><a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jEBzTnsAAAAJ&citation_for_view=jEBzTnsAAAAJ:9yKSN-GCB0IC" target="_blank" rel="noopener">On Generalization Bounds for Projective Clustering</a></em> — with M Larsen, C Schwiegelshohn, M Toftrup.</p>
+        </div>
+      </div>
+
+      <!-- Add more 2024 entries here -->
+
+      <div class="news-item">
+        <span class="news-month">—</span>
+        <div class="news-body">
+          <span class="news-tag tag-review">Review</span>
+          Served as <strong>reviewer / PC member</strong> for [Conference Name 2024].
+          <p>Replace with the actual conference(s) you reviewed for this year.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── 2023 ── -->
+  <div class="year-group">
+    <p class="year-heading">2023</p>
+    <div class="news-list">
+
+      <div class="news-item">
+        <span class="news-month">Jun</span>
+        <div class="news-body">
+          <span class="news-tag tag-talk">Talk</span>
+          <strong>Presented at CVPR 2023</strong>, Vancouver, Canada.
+          <p><em><a href="https://youtu.be/khpOlR9u1U8" target="_blank" rel="noopener">Leveraging Inter-Rater Agreement for Classification in the Presence of Noisy Labels</a></em>. <a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Bucarelli_Leveraging_Inter-Rater_Agreement_for_Classification_in_the_Presence_of_Noisy_CVPR_2023_paper.pdf" target="_blank" rel="noopener">PDF ↗</a></p>
+        </div>
+      </div>
+
+      <div class="news-item">
+        <span class="news-month">Mar</span>
+        <div class="news-body">
+          <span class="news-tag tag-paper">Preprint</span>
+          New preprint on arXiv.
+          <p><em><a href="https://arxiv.org/abs/2303.09470" target="_blank" rel="noopener">Combining Distance to Class Centroids and Outlier Discounting for Improved Learning with Noisy Labels</a></em> — with FA Wani, F Silvestri.</p>
+        </div>
+      </div>
+
+      <div class="news-item">
+        <span class="news-month">Feb</span>
+        <div class="news-body">
+          <span class="news-tag tag-paper">Paper</span>
+          Paper published in <strong>Sensors</strong>.
+          <p><em><a href="https://www.mdpi.com/1424-8220/23/5/2557" target="_blank" rel="noopener">False Data Injection Impact on High RES Power Systems with Centralized Voltage Regulation Architecture</a></em> — with T Bragatto et al.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── 2022 ── -->
+  <div class="year-group">
+    <p class="year-heading">2022</p>
+    <div class="news-list">
+
+      <div class="news-item">
+        <span class="news-month">Jul</span>
+        <div class="news-body">
+          <span class="news-tag tag-talk">Talk</span>
+          <strong>Presented at IJCNN 2022</strong>.
+          <p><em><a href="https://arxiv.org/abs/2110.02775" target="_blank" rel="noopener">Newron: A New Generalization of the Artificial Neuron to Enhance the Interpretability of Neural Networks</a></em> — with F Siciliano, G Tolomei, F Silvestri.</p>
+        </div>
+      </div>
+
+      <!-- Add more 2022 entries here -->
+
+      <div class="news-item">
+        <span class="news-month">—</span>
+        <div class="news-body">
+          <span class="news-tag tag-review">Review</span>
+          Served as <strong>reviewer / PC member</strong> for [Conference Name 2022].
+          <p>Replace with the actual conference(s) you reviewed for this year.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── 2020 ── -->
+  <div class="year-group">
+    <p class="year-heading">2020</p>
+    <div class="news-list">
+
+      <div class="news-item">
+        <span class="news-month">Nov</span>
+        <div class="news-body">
+          <span class="news-tag tag-other">Start</span>
+          <strong>Started PhD in Data Science</strong> at Sapienza University of Rome.
+          <p>Joined the <a href="https://rstless-lab.netlify.app/" target="_blank" rel="noopener">RSTless group</a> under the supervision of Prof. Fabrizio Silvestri.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 Maria Sofia Bucarelli</p>
+    <a href="index.html">← Back to main page</a>
+  </footer>
+
+</div>
+</body>
+</html>
