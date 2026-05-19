@@ -322,6 +322,63 @@
     }
     .contact-item a:hover { color: var(--text); }
 
+    /* News strip */
+    .news-list { display: flex; flex-direction: column; gap: 0; }
+    .news-item {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 0 1rem;
+      padding: 0.65rem 0;
+      border-bottom: 0.5px solid var(--border);
+      align-items: baseline;
+    }
+    .news-date {
+      font-family: var(--ff-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+    .news-body { font-size: 14px; line-height: 1.5; }
+    .news-body a { color: var(--accent); text-decoration: none; }
+    .news-body a:hover { text-decoration: underline; }
+    .news-tag {
+      display: inline-block;
+      font-family: var(--ff-mono);
+      font-size: 9px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 1px 6px;
+      border-radius: 3px;
+      margin-right: 6px;
+      vertical-align: middle;
+      position: relative;
+      top: -1px;
+    }
+    .tag-paper   { background: #dbeafe; color: #1e40af; }
+    .tag-talk    { background: #fef9c3; color: #854d0e; }
+    .tag-award   { background: #fce7f3; color: #9d174d; }
+    .tag-visit   { background: #ede9fe; color: #5b21b6; }
+    .tag-other   { background: var(--surface); color: var(--text-muted); }
+    .tag-review  { background: #d1fae5; color: #065f46; }
+    @media (prefers-color-scheme: dark) {
+      .tag-paper  { background: #1e3a5f; color: #93c5fd; }
+      .tag-talk   { background: #3d2e00; color: #fde68a; }
+      .tag-award  { background: #4a0d2e; color: #f9a8d4; }
+      .tag-visit  { background: #2e1a5e; color: #c4b5fd; }
+      .tag-review { background: #064e3b; color: #6ee7b7; }
+    }
+    .news-see-all {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-family: var(--ff-mono);
+      font-size: 11px;
+      color: var(--accent);
+      text-decoration: none;
+      margin-top: 1rem;
+    }
+    .news-see-all:hover { text-decoration: underline; }
+
     /* Footer */
     footer {
       border-top: 0.5px solid var(--border);
@@ -349,6 +406,7 @@
       <a href="#research">Research</a>
       <a href="#publications">Publications</a>
       <a href="#cv">CV</a>
+      <a href="#news">News</a>
       <a href="#contact">Contact</a>
     </div>
   </nav>
@@ -479,6 +537,47 @@
       </div>
 
     </div>
+  </section>
+
+  <!-- News strip -->
+  <section id="news">
+    <p class="section-label">Recent news</p>
+    <div class="news-list">
+
+      <div class="news-item">
+        <span class="news-date">Nov 2024</span>
+        <span class="news-body">
+          <span class="news-tag tag-paper">Paper</span>
+          Paper accepted at <strong>NeurIPS 2024</strong> — <em>On Generalization Bounds for Projective Clustering</em>.
+        </span>
+      </div>
+
+      <div class="news-item">
+        <span class="news-date">Jun 2023</span>
+        <span class="news-body">
+          <span class="news-tag tag-talk">Talk</span>
+          Presented at <strong>CVPR 2023</strong> in Vancouver — <em>Leveraging Inter-Rater Agreement for Classification in the Presence of Noisy Labels</em>.
+        </span>
+      </div>
+
+      <div class="news-item">
+        <span class="news-date">Mar 2023</span>
+        <span class="news-body">
+          <span class="news-tag tag-paper">Preprint</span>
+          New preprint on arXiv — <em>Combining Distance to Class Centroids and Outlier Discounting for Improved Learning with Noisy Labels</em>.
+        </span>
+      </div>
+
+      <div class="news-item">
+        <span class="news-date">Jul 2022</span>
+        <span class="news-body">
+          <span class="news-tag tag-talk">Talk</span>
+          Presented <em>Newron</em> at <strong>IJCNN 2022</strong>.
+        </span>
+      </div>
+
+    </div>
+    <a href="news.html" class="news-see-all">See all news →</a>
   </section>
 
   <!-- CV -->
