@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Maria Sofia Bucarelli</title>
-  <meta name="description" content="PhD student in Data Science at Sapienza University of Rome. Research in Machine Learning and Learning Theory." />
+  <meta name="description" content="CNRS postdoctoral researcher in the COATI team (Inria, CNRS, Université Côte d'Azur). Research in machine learning: representation learning, graph neural networks, learning from noisy labels, and model merging." />
   <meta property="og:title" content="Maria Sofia Bucarelli" />
-  <meta property="og:description" content="PhD student in Data Science at Sapienza University of Rome." />
+  <meta property="og:description" content="CNRS postdoctoral researcher in the COATI team (Inria, CNRS, Université Côte d'Azur)." />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -82,7 +82,7 @@
     }
     .nav-links {
       display: flex;
-      gap: 1.5rem;
+      gap: 1.25rem;
       flex-wrap: wrap;
     }
     .nav-links a {
@@ -106,14 +106,6 @@
     @media (max-width: 500px) {
       .hero { grid-template-columns: 1fr; }
       .avatar { display: none; }
-    }
-    .hero-text .role {
-      font-family: var(--ff-mono);
-      font-size: 11px;
-      color: var(--accent);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 0.75rem;
     }
     .hero-text h1 {
       font-family: var(--ff-serif);
@@ -176,7 +168,6 @@
       color: var(--accent);
       flex-shrink: 0;
       font-weight: 500;
-      /* Replace with: background-image: url('photo.jpg'); background-size: cover; */
     }
 
     /* Sections */
@@ -192,40 +183,24 @@
       border-bottom: 0.5px solid var(--border);
     }
 
-    /* Research */
-    .research-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-      gap: 1rem;
+    /* Research — plain keywords */
+    .keyword-list {
+      font-size: 15px;
+      line-height: 1.9;
+      color: var(--text);
     }
-    .research-card {
-      background: var(--card);
-      border: 0.5px solid var(--border);
-      border-radius: 12px;
-      padding: 1rem 1.25rem;
-    }
-    .research-card .tag {
-      font-family: var(--ff-mono);
-      font-size: 10px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.4rem;
-    }
-    .research-card h3 {
-      font-size: 14px;
-      font-weight: 500;
-      margin-bottom: 0.4rem;
-      line-height: 1.35;
-    }
-    .research-card p {
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
+    .keyword-list .sep { color: var(--text-muted); margin: 0 0.4rem; }
 
     /* Publications */
-    .pub-list { display: flex; flex-direction: column; gap: 1.5rem; }
+    .year-group { margin-bottom: 1.75rem; }
+    .year-head {
+      font-family: var(--ff-mono);
+      font-size: 12px;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+      margin-bottom: 0.9rem;
+    }
+    .pub-list { display: flex; flex-direction: column; gap: 1.25rem; }
     .pub-item {
       display: grid;
       grid-template-columns: 3px 1fr;
@@ -250,11 +225,6 @@
       line-height: 1.4;
       margin-bottom: 3px;
       color: var(--text);
-    }
-    .pub-venue {
-      font-size: 13px;
-      color: var(--text-muted);
-      font-style: italic;
     }
     .pub-authors {
       font-size: 12px;
@@ -281,46 +251,47 @@
     }
     .pub-link:hover { background: var(--accent-light); }
 
-    /* CV */
-    .cv-row {
+    /* Generic date + content list (talks, teaching, service, education) */
+    .entry {
       display: flex;
       gap: 1.5rem;
       align-items: baseline;
       padding: 0.75rem 0;
       border-bottom: 0.5px solid var(--border);
     }
-    .cv-year {
+    .entry-date {
       font-family: var(--ff-mono);
       font-size: 11px;
       color: var(--text-muted);
       min-width: 95px;
       flex-shrink: 0;
     }
-    .cv-main { font-size: 14px; }
-    .cv-main strong { font-weight: 500; display: block; }
-    .cv-main span { color: var(--text-muted); font-size: 13px; }
+    .entry-main { font-size: 14px; line-height: 1.55; }
+    .entry-main strong { font-weight: 500; }
+    .entry-main .meta { color: var(--text-muted); font-size: 13px; }
+    .entry-main a { color: var(--accent); text-decoration: none; }
+    .entry-main a:hover { text-decoration: underline; }
+    @media (max-width: 480px) {
+      .entry { flex-direction: column; gap: 0.25rem; }
+      .entry-date { min-width: 0; }
+    }
 
-    /* Contact */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-    @media (max-width: 480px) { .contact-grid { grid-template-columns: 1fr; } }
-    .contact-item {
+    /* Service blocks */
+    .service-row {
       display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 14px;
-      color: var(--text-muted);
+      gap: 1.5rem;
+      align-items: baseline;
+      padding: 0.75rem 0;
+      border-bottom: 0.5px solid var(--border);
     }
-    .contact-item svg { width: 16px; height: 16px; color: var(--accent); flex-shrink: 0; }
-    .contact-item a {
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: color 0.15s;
+    .service-year {
+      font-family: var(--ff-mono);
+      font-size: 11px;
+      color: var(--accent);
+      min-width: 60px;
+      flex-shrink: 0;
     }
-    .contact-item a:hover { color: var(--text); }
+    .service-body { font-size: 13.5px; line-height: 1.6; color: var(--text-muted); }
 
     /* News strip */
     .news-list { display: flex; flex-direction: column; gap: 0; }
@@ -357,15 +328,11 @@
     .tag-paper   { background: #dbeafe; color: #1e40af; }
     .tag-talk    { background: #fef9c3; color: #854d0e; }
     .tag-award   { background: #fce7f3; color: #9d174d; }
-    .tag-visit   { background: #ede9fe; color: #5b21b6; }
     .tag-other   { background: var(--surface); color: var(--text-muted); }
-    .tag-review  { background: #d1fae5; color: #065f46; }
     @media (prefers-color-scheme: dark) {
       .tag-paper  { background: #1e3a5f; color: #93c5fd; }
       .tag-talk   { background: #3d2e00; color: #fde68a; }
       .tag-award  { background: #4a0d2e; color: #f9a8d4; }
-      .tag-visit  { background: #2e1a5e; color: #c4b5fd; }
-      .tag-review { background: #064e3b; color: #6ee7b7; }
     }
     .news-see-all {
       display: inline-flex;
@@ -405,21 +372,24 @@
       <a href="#about">About</a>
       <a href="#research">Research</a>
       <a href="#publications">Publications</a>
-      <a href="#cv">CV</a>
-      <a href="#news">News</a>
-      <a href="#contact">Contact</a>
+      <a href="#talks">Talks</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#service">Service</a>
     </div>
   </nav>
 
   <!-- Hero -->
   <div class="hero" id="about">
     <div class="hero-text">
-      <p class="role">PhD student in Data Science &nbsp;·&nbsp; Sapienza University of Rome</p>
       <h1>Hi, I'm Maria Sofia Bucarelli</h1>
-      <p>I'm a PhD student at the Department of Computer, Control and Management Engineering at Sapienza University of Rome, working under
-        <a href="https://www.diag.uniroma1.it/silvestri/">Prof. Fabrizio Silvestri</a>
-        and the <a href="https://rstless-lab.netlify.app/">RSTless group</a>.
-        My research focuses on the theory and applications of machine learning, including generalization bounds, learning with noisy labels, and neural network interpretability.
+      <p>I'm a CNRS postdoctoral researcher in the <a href="https://team.inria.fr/coati/team-members/">COATI team</a>, under the supervision of 3IA chair
+        <a href="https://natema.github.io">Emanuele Natale</a>.
+        COATI is a joint team involving Inria, CNRS, and Université Côte d'Azur.
+        My research spans the theory and applications of machine learning, including representation learning,
+        graph neural networks, learning from noisy labels, and model merging.
+        I completed my PhD in Data Science in 2024 at Sapienza University of Rome, working with
+        <a href="https://fabsilvestri.github.io">Prof. Fabrizio Silvestri</a>
+        and the <a href="https://rstless.it">RSTless group</a>.
       </p>
       <div class="hero-links">
         <a href="https://scholar.google.com/citations?user=jEBzTnsAAAAJ&hl=en" class="btn btn-accent" target="_blank" rel="noopener">
@@ -446,200 +416,312 @@
   <!-- Research -->
   <section id="research">
     <p class="section-label">Research interests</p>
-    <div class="research-grid">
-      <div class="research-card">
-        <p class="tag">Area 01</p>
-        <h3>Machine Learning</h3>
-        <p>Theory and applications of ML, including learning with noisy labels, clustering, and neural network interpretability.</p>
-      </div>
-      <div class="research-card">
-        <p class="tag">Area 02</p>
-        <h3>Learning Theory</h3>
-        <p>Generalization bounds and theoretical foundations for modern machine learning algorithms and models.</p>
-      </div>
-      <div class="research-card">
-        <p class="tag">Area 03</p>
-        <h3>Foundations of ML</h3>
-        <p>Mathematical underpinnings of learning algorithms, including projective clustering and inter-rater agreement.</p>
-      </div>
+    <div class="keyword-list">
+      Representation Learning <span class="sep">·</span> Learning from Noisy Labels <span class="sep">·</span> Machine Unlearning <span class="sep">·</span> Graph Neural Networks <span class="sep">·</span> Model Merging <span class="sep">·</span> Generalization Bounds <span class="sep">·</span> Approximation Properties of Neural Networks
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education">
+    <p class="section-label">Education</p>
+    <div class="entry">
+      <span class="entry-date">2020 – 2024</span>
+      <div class="entry-main"><strong>PhD in Data Science</strong><br>
+        <span class="meta">Sapienza University of Rome &middot; Advisor: Prof. Fabrizio Silvestri</span></div>
+    </div>
+    <div class="entry">
+      <span class="entry-date">2016 – 2019</span>
+      <div class="entry-main"><strong>Master's Degree in Mathematics</strong><br>
+        <span class="meta">Sapienza University of Rome</span></div>
+    </div>
+    <div class="entry">
+      <span class="entry-date">2013 – 2016</span>
+      <div class="entry-main"><strong>Bachelor's Degree in Mathematics</strong><br>
+        <span class="meta">Sapienza University of Rome</span></div>
     </div>
   </section>
 
   <!-- Publications -->
   <section id="publications">
     <p class="section-label">Publications</p>
-    <div class="pub-list">
 
-      <div class="pub-item">
-        <div class="pub-bar"></div>
-        <div>
-          <p class="pub-venue-tag">NeurIPS 2024</p>
-          <p class="pub-title">On Generalization Bounds for Projective Clustering</p>
-          <p class="pub-venue">Advances in Neural Information Processing Systems 37</p>
-          <p class="pub-authors"><strong>MS Bucarelli</strong>, M Larsen, C Schwiegelshohn, M Toftrup</p>
-          <div class="pub-links">
-            <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jEBzTnsAAAAJ&citation_for_view=jEBzTnsAAAAJ:9yKSN-GCB0IC" class="pub-link" target="_blank" rel="noopener">Scholar ↗</a>
-          </div>
-        </div>
+    <!-- 2026 -->
+    <div class="year-group">
+      <p class="year-head">2026</p>
+      <div class="pub-list">
+        <div class="pub-item"><div class="pub-bar"></div><div>
+          <p class="pub-venue-tag">ICLR 2026</p>
+          <p class="pub-title">MASS: MoErging through Adaptive Subspace Selection</p>
+          <p class="pub-authors">D Crisostomi, A Zirilli, AA Gargiulo, <strong>MS Bucarelli</strong>, S Scardapane, F Silvestri, I Masi, E Rodolà</p>
+        </div></div>
+        <div class="pub-item"><div class="pub-bar"></div><div>
+          <p class="pub-venue-tag">AISTATS 2026</p>
+          <p class="pub-title">The Majority Vote Paradigm Shift: When Popular Meets Optimal</p>
+          <p class="pub-authors">A Purificato, <strong>MS Bucarelli</strong>, AK Nelakanti, A Bacciu, F Silvestri, A Mantrach</p>
+        </div></div>
+        <div class="pub-item"><div class="pub-bar"></div><div>
+          <p class="pub-venue-tag">AISTATS 2026</p>
+          <p class="pub-title">Rank Lifting and Random Non-Linear Maps</p>
+          <p class="pub-authors">A Drago, <strong>MS Bucarelli</strong>, F Caso, F Siciliano, F Silvestri, L Becchetti</p>
+        </div></div>
+        <div class="pub-item"><div class="pub-bar"></div><div>
+          <p class="pub-venue-tag">ECML-PKDD 2026</p>
+          <p class="pub-title">Subtract the Corruption: Training-Data-Free Corrective Machine Unlearning using Task Arithmetic</p>
+          <p class="pub-authors">M Mozafari, F Wani, <strong>MS Bucarelli</strong>, F Silvestri</p>
+        </div></div>
       </div>
+    </div>
 
-      <div class="pub-item">
-        <div class="pub-bar"></div>
-        <div>
+    <!-- 2025 -->
+    <div class="year-group">
+      <p class="year-head">2025</p>
+      <div class="pub-list">
+        <div class="pub-item"><div class="pub-bar"></div><div>
+          <p class="pub-venue-tag">CVPR 2025</p>
+          <p class="pub-title">Task Singular Vectors: Reducing Task Interference in Model Merging</p>
+          <p class="pub-authors">AA Gargiulo, D Crisostomi, <strong>MS Bucarelli</strong>, S Scardapane, F Silvestri, E Rodolà</p>
+        </div></div>
+        <div class="pub-item"><div class="pub-bar"></div><div>
+          <p class="pub-venue-tag">TMLR 2025</p>
+          <p class="pub-title">Hypergraph Neural Networks through the Lens of Message Passing: A Common Perspective to Homophily and Architecture Design</p>
+          <p class="pub-authors">L Telyatnikov, <strong>MS Bucarelli</strong>, G Bernardez, O Zaghen, S Scardapane, P Liò</p>
+        </div></div>
+        <div class="pub-item"><div class="pub-bar"></div><div>
+          <p class="pub-venue-tag">IJCNN 2025</p>
+          <p class="pub-title">Link Prediction under Heterophily: A Physics-Inspired Graph Neural Network Approach</p>
+          <p class="pub-authors">AG Di Francesco, F Caso, <strong>MS Bucarelli</strong>, F Silvestri</p>
+        </div></div>
+        <div class="pub-item"><div class="pub-bar"></div><div>
+          <p class="pub-venue-tag">UniReps Workshop (NeurIPS)</p>
+          <p class="pub-title">On Task Vectors and Gradients</p>
+          <p class="pub-authors">L Zhou, D Solombrino, D Crisostomi, <strong>MS Bucarelli</strong>, GA D'Inverno, F Silvestri, E Rodolà</p>
+        </div></div>
+      </div>
+    </div>
+
+    <!-- 2024 -->
+    <div class="year-group">
+      <p class="year-head">2024</p>
+      <div class="pub-list">
+        <div class="pub-item"><div class="pub-bar"></div><div>
+          <p class="pub-venue-tag">Neural Networks 2024</p>
+          <p class="pub-title">A Topological Description of Loss Surfaces Based on Betti Numbers</p>
+          <p class="pub-authors"><strong>MS Bucarelli</strong>, GA D'Inverno, M Bianchini, F Scarselli, F Silvestri</p>
+        </div></div>
+        <div class="pub-item"><div class="pub-bar"></div><div>
+          <p class="pub-venue-tag">IJCNN 2024</p>
+          <p class="pub-title">Learning with Noisy Labels through Learnable Weighting and Centroid Similarity</p>
+          <p class="pub-authors">F Wani, <strong>MS Bucarelli</strong>, F Silvestri</p>
+        </div></div>
+        <div class="pub-item"><div class="pub-bar"></div><div>
+          <p class="pub-venue-tag">Workshop @ ICML 2024</p>
+          <p class="pub-title">&#8711;&#964;: Gradient-based and Task-Agnostic Machine Unlearning</p>
+          <p class="pub-authors">D Trippa, C Campagnano, <strong>MS Bucarelli</strong>, G Tolomei, F Silvestri</p>
+        </div></div>
+      </div>
+    </div>
+
+    <!-- 2023 -->
+    <div class="year-group">
+      <p class="year-head">2023</p>
+      <div class="pub-list">
+        <div class="pub-item"><div class="pub-bar"></div><div>
+          <p class="pub-venue-tag">NeurIPS 2023</p>
+          <p class="pub-title">On Generalization Bounds for Projective Clustering</p>
+          <p class="pub-authors"><strong>MS Bucarelli</strong>, MF Larsen, C Schwiegelshohn, MB Toftrup</p>
+          <div class="pub-links">
+            <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jEBzTnsAAAAJ&citation_for_view=jEBzTnsAAAAJ:9yKSN-GCB0IC" class="pub-link" target="_blank" rel="noopener">Scholar &#8599;</a>
+          </div>
+        </div></div>
+        <div class="pub-item"><div class="pub-bar"></div><div>
           <p class="pub-venue-tag">CVPR 2023</p>
           <p class="pub-title">Leveraging Inter-Rater Agreement for Classification in the Presence of Noisy Labels</p>
-          <p class="pub-venue">IEEE/CVF Conference on Computer Vision and Pattern Recognition</p>
           <p class="pub-authors"><strong>MS Bucarelli</strong>, L Cassano, F Siciliano, A Mantrach, F Silvestri</p>
           <div class="pub-links">
-            <a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Bucarelli_Leveraging_Inter-Rater_Agreement_for_Classification_in_the_Presence_of_Noisy_CVPR_2023_paper.pdf" class="pub-link" target="_blank" rel="noopener">PDF ↗</a>
-            <a href="https://youtu.be/khpOlR9u1U8" class="pub-link" target="_blank" rel="noopener">Video ↗</a>
+            <a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Bucarelli_Leveraging_Inter-Rater_Agreement_for_Classification_in_the_Presence_of_Noisy_CVPR_2023_paper.pdf" class="pub-link" target="_blank" rel="noopener">PDF &#8599;</a>
+            <a href="https://youtu.be/khpOlR9u1U8" class="pub-link" target="_blank" rel="noopener">Video &#8599;</a>
           </div>
-        </div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-bar"></div>
-        <div>
-          <p class="pub-venue-tag">arXiv 2023</p>
-          <p class="pub-title">Combining Distance to Class Centroids and Outlier Discounting for Improved Learning with Noisy Labels</p>
-          <p class="pub-venue">arXiv preprint arXiv:2303.09470</p>
-          <p class="pub-authors">FA Wani, <strong>MS Bucarelli</strong>, F Silvestri</p>
-          <div class="pub-links">
-            <a href="https://arxiv.org/abs/2303.09470" class="pub-link" target="_blank" rel="noopener">PDF ↗</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-bar"></div>
-        <div>
-          <p class="pub-venue-tag">IJCNN 2022</p>
-          <p class="pub-title">Newron: A New Generalization of the Artificial Neuron to Enhance the Interpretability of Neural Networks</p>
-          <p class="pub-venue">International Joint Conference on Neural Networks</p>
-          <p class="pub-authors">F Siciliano, <strong>MS Bucarelli</strong>, G Tolomei, F Silvestri</p>
-          <div class="pub-links">
-            <a href="https://arxiv.org/abs/2110.02775" class="pub-link" target="_blank" rel="noopener">PDF ↗</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-bar"></div>
-        <div>
+        </div></div>
+        <div class="pub-item"><div class="pub-bar"></div><div>
           <p class="pub-venue-tag">Sensors 2023</p>
           <p class="pub-title">False Data Injection Impact on High RES Power Systems with Centralized Voltage Regulation Architecture</p>
-          <p class="pub-venue">Sensors 23 (5), 2557</p>
           <p class="pub-authors">T Bragatto, MA Bucarelli, <strong>MS Bucarelli</strong>, F Carere, A Geri, M Maccioni</p>
           <div class="pub-links">
-            <a href="https://www.mdpi.com/1424-8220/23/5/2557" class="pub-link" target="_blank" rel="noopener">PDF ↗</a>
+            <a href="https://www.mdpi.com/1424-8220/23/5/2557" class="pub-link" target="_blank" rel="noopener">PDF &#8599;</a>
           </div>
-        </div>
+        </div></div>
       </div>
+    </div>
 
+    <!-- 2022 -->
+    <div class="year-group">
+      <p class="year-head">2022</p>
+      <div class="pub-list">
+        <div class="pub-item"><div class="pub-bar"></div><div>
+          <p class="pub-venue-tag">IJCNN 2022</p>
+          <p class="pub-title">Newron: A New Generalization of the Artificial Neuron to Enhance the Interpretability of Neural Networks</p>
+          <p class="pub-authors">F Siciliano, <strong>MS Bucarelli</strong>, G Tolomei, F Silvestri</p>
+          <div class="pub-links">
+            <a href="https://arxiv.org/abs/2110.02775" class="pub-link" target="_blank" rel="noopener">PDF &#8599;</a>
+          </div>
+        </div></div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Talks & Posters -->
+  <section id="talks">
+    <p class="section-label">Talks &amp; Posters</p>
+
+    <div class="entry">
+      <span class="entry-date">Sep 2026</span>
+      <div class="entry-main"><strong>The Majority Vote Paradigm Shift: When Popular Meets Optimal</strong><br>
+        <span class="meta">Young Applied Mathematicians Conference &middot; Turin, Italy</span></div>
+    </div>
+    <div class="entry">
+      <span class="entry-date">Jun 2025</span>
+      <div class="entry-main"><strong>Approximation and Learning in High Dimensions</strong> (CRM Workshop)<br>
+        <span class="meta">Centre de Recherches Mathématiques &middot; Montréal, QC, Canada</span></div>
+    </div>
+    <div class="entry">
+      <span class="entry-date">Dec 2024</span>
+      <div class="entry-main">Poster: <strong>Robustness of Graph Classification: Failure Modes, Causes, and Noise-Resistant Loss in Graph Neural Networks</strong><br>
+        <span class="meta">Learning on Graphs Italian Meetup &middot; Siena, Italy</span></div>
+    </div>
+    <div class="entry">
+      <span class="entry-date">Nov 2024</span>
+      <div class="entry-main"><strong>Large Language Models and Agents: A Challenging Symbiosis</strong><br>
+        <span class="meta">13th Italian Workshop on Machine Learning and Data Mining, AIxIA Conference</span></div>
+    </div>
+    <div class="entry">
+      <span class="entry-date">Jul 2024</span>
+      <div class="entry-main">Poster: <strong>Gradient-based and Task-Agnostic Machine Unlearning</strong><br>
+        <span class="meta">Next Generation of AI Safety Workshop @ ICML 2024 &middot; Vienna, Austria</span></div>
+    </div>
+    <div class="entry">
+      <span class="entry-date">May 2024</span>
+      <div class="entry-main"><strong>On Generalization Bounds for Projective Clustering</strong><br>
+        <span class="meta">Kolmogorov Meets Turing (KmT) 2024 Workshop &middot; Rome, Italy</span></div>
+    </div>
+    <div class="entry">
+      <span class="entry-date">Jan 2024</span>
+      <div class="entry-main"><strong>On Generalization Bounds for Projective Clustering</strong><br>
+        <span class="meta">Workshop on Mathematics for Artificial Intelligence and Machine Learning &middot; Milan, Italy</span></div>
+    </div>
+    <div class="entry">
+      <span class="entry-date">Nov 2023</span>
+      <div class="entry-main"><strong>Hypergraph Neural Networks through the Lens of Message Passing</strong> (work in progress)<br>
+        <span class="meta">Learning on Graphs Conference Meetup</span></div>
+    </div>
+    <div class="entry">
+      <span class="entry-date">May 2023</span>
+      <div class="entry-main"><strong>Improving Learning with Noisy Labels in Two Possible Scenarios</strong><br>
+        <span class="meta">University of Cambridge</span></div>
+    </div>
+    <div class="entry">
+      <span class="entry-date">Nov 2022</span>
+      <div class="entry-main"><strong>A Topological Description of Loss Surfaces Based on Betti Numbers</strong> (work in progress)<br>
+        <span class="meta">Workshop "Matematica per l'IA e il ML — Giovani Ricercatori"</span></div>
     </div>
   </section>
 
-  <!-- News strip -->
-  <section id="news">
-    <p class="section-label">Recent news</p>
-    <div class="news-list">
+  <!-- Teaching -->
+  <section id="teaching">
+    <p class="section-label">Teaching &amp; Mentoring</p>
 
-      <div class="news-item">
-        <span class="news-date">Nov 2024</span>
-        <span class="news-body">
-          <span class="news-tag tag-paper">Paper</span>
-          Paper accepted at <strong>NeurIPS 2024</strong> — <em>On Generalization Bounds for Projective Clustering</em>.
-        </span>
-      </div>
-
-      <div class="news-item">
-        <span class="news-date">Jun 2023</span>
-        <span class="news-body">
-          <span class="news-tag tag-talk">Talk</span>
-          Presented at <strong>CVPR 2023</strong> in Vancouver — <em>Leveraging Inter-Rater Agreement for Classification in the Presence of Noisy Labels</em>.
-        </span>
-      </div>
-
-      <div class="news-item">
-        <span class="news-date">Mar 2023</span>
-        <span class="news-body">
-          <span class="news-tag tag-paper">Preprint</span>
-          New preprint on arXiv — <em>Combining Distance to Class Centroids and Outlier Discounting for Improved Learning with Noisy Labels</em>.
-        </span>
-      </div>
-
-      <div class="news-item">
-        <span class="news-date">Jul 2022</span>
-        <span class="news-body">
-          <span class="news-tag tag-talk">Talk</span>
-          Presented <em>Newron</em> at <strong>IJCNN 2022</strong>.
-        </span>
-      </div>
-
+    <div class="entry">
+      <span class="entry-date">Dec 2025</span>
+      <div class="entry-main"><strong>PyTorch &amp; PyTorch Lightning</strong> module — SoBigData Machine Learning course<br>
+        <span class="meta">Sapienza University of Rome</span></div>
     </div>
-    <a href="news.html" class="news-see-all">See all news →</a>
-  </section>
-
-  <!-- CV -->
-  <section id="cv">
-    <p class="section-label">Education</p>
-    <div class="cv-row">
-      <span class="cv-year">2020 – present</span>
-      <div class="cv-main">
-        <strong>PhD in Data Science</strong>
-        <span>Sapienza University of Rome &nbsp;·&nbsp; Advisor: Prof. Fabrizio Silvestri</span>
-      </div>
+    <div class="entry">
+      <span class="entry-date">Nov 2025</span>
+      <div class="entry-main"><strong>Large Language Models: Cosa sono e Come usarli</strong> — course for high-school teachers<br>
+        <span class="meta">Accademia Nazionale dei Lincei &middot; Sapienza University of Rome</span></div>
     </div>
-    <div class="cv-row">
-      <span class="cv-year">2016 – 2019</span>
-      <div class="cv-main">
-        <strong>Master's Degree in Mathematics</strong>
-        <span>Sapienza University of Rome</span>
-      </div>
+    <div class="entry">
+      <span class="entry-date">Sep 2025</span>
+      <div class="entry-main"><strong>Higher-Order Network Representations and Topological Deep Learning</strong> — PhD course<br>
+        <span class="meta">PhD in Cybersecurity, Sapienza University of Rome</span></div>
     </div>
-    <div class="cv-row">
-      <span class="cv-year">2013 – 2016</span>
-      <div class="cv-main">
-        <strong>Bachelor's Degree in Mathematics</strong>
-        <span>Sapienza University of Rome</span>
-      </div>
+    <div class="entry">
+      <span class="entry-date">Jul 2025</span>
+      <div class="entry-main"><strong>Higher-Order Network Analysis: Topology, Machine Learning, and Applications</strong> — PhD course<br>
+        <span class="meta">3rd European Summer School on Artificial Intelligence &middot; Bratislava, Slovakia &middot;
+          <a href="https://essai2025.eu/courses/" target="_blank" rel="noopener">webpage</a></span></div>
     </div>
-    <div style="margin-top: 1.25rem;">
-      <!-- Replace href with your actual CV file path, e.g. href="cv.pdf" -->
-      <a href="cv.pdf" class="btn">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:14px;height:14px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Download full CV
-      </a>
+    <div class="entry">
+      <span class="entry-date">Jun 2025</span>
+      <div class="entry-main"><strong>Deep Learning Theory and Robustness</strong> — PhD course<br>
+        <span class="meta">PhD in Data Science, Sapienza University of Rome &middot;
+          <a href="https://phd.uniroma1.it/web/OffertaFormativaProgrammataNew41.aspx?i=3565&l=IT" target="_blank" rel="noopener">webpage</a></span></div>
+    </div>
+    <div class="entry">
+      <span class="entry-date">2021 – 2024</span>
+      <div class="entry-main">Teaching assistant, <strong>Deep Learning</strong> course<br>
+        <span class="meta">Sapienza University of Rome &middot; Prof. Fabrizio Silvestri</span></div>
+    </div>
+    <div class="entry">
+      <span class="entry-date">2021 – present</span>
+      <div class="entry-main">Co-advisor of <strong>11 Master's theses</strong><br>
+        <span class="meta">Data Science, AI &amp; Robotics, Computer Engineering, and Computer Science programs &middot; Sapienza University of Rome</span></div>
+    </div>
+    <div class="entry">
+      <span class="entry-date">2023 – 2024</span>
+      <div class="entry-main"><strong>Sustainability and AI</strong> — 30-hour high-school course</div>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact">
-    <p class="section-label">Contact</p>
-    <div class="contact-grid">
-      <div class="contact-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        <!-- Replace with your actual email -->
-        <a href="mailto:bucarelli@diag.uniroma1.it">bucarelli@diag.uniroma1.it</a>
-      </div>
-      <div class="contact-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
-        <a href="https://twitter.com/mariasofiabuc" target="_blank" rel="noopener">@mariasofiabuc</a>
-      </div>
-      <div class="contact-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-        <a href="https://github.com/mariasofiab" target="_blank" rel="noopener">github.com/mariasofiab</a>
-      </div>
-      <div class="contact-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-        <a href="https://www.linkedin.com/in/maria-sofia-bucarelli-ba4358193/" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
+  <!-- Organizing & Awards -->
+  <section id="organizing">
+    <p class="section-label">Organizing &amp; Awards</p>
+
+    <div class="entry">
+      <span class="entry-date">2025</span>
+      <div class="entry-main">Workshop organizer — <strong>AI for a Cooler Planet: Tackling Environmental Challenges with Neural Networks</strong>, IJCNN 2025<br>
+        <span class="meta"><a href="https://sites.google.com/view/ai4coolerplanet/home" target="_blank" rel="noopener">webpage</a></span></div>
+    </div>
+    <div class="entry">
+      <span class="entry-date">2025</span>
+      <div class="entry-main">Competition organizer — <strong>Learning with Noisy Graph Labels Challenge</strong>, IJCNN 2025<br>
+        <span class="meta"><a href="https://2025.ijcnn.org/program/competitions" target="_blank" rel="noopener">webpage</a></span></div>
+    </div>
+    <div class="entry">
+      <span class="entry-date">Nov 2022</span>
+      <div class="entry-main"><strong>Best Poster Award</strong> — Intech ML Workshop, Amazon &middot; Madrid, Spain</div>
+    </div>
+  </section>
+
+  <!-- Service -->
+  <section id="service">
+    <p class="section-label">Peer Review &amp; Program Committees</p>
+
+    <div class="service-row">
+      <span class="service-year">2026</span>
+      <div class="service-body">Reviewer: ICML 2026 (Silver Reviewer), CVPR 2026 (Outstanding Reviewer), ACL 2026, NeurIPS 2026, CIKM 2026.</div>
+    </div>
+    <div class="service-row">
+      <span class="service-year">2025</span>
+      <div class="service-body">Reviewer: ICML, ECIR, IJCNN, ICALP, ICLR, ECCV, NeurIPS 2025; AAAI 2026, AISTATS 2026, ICLR 2026, WWW 2026.</div>
+    </div>
+    <div class="service-row">
+      <span class="service-year">2024</span>
+      <div class="service-body">Reviewer: NeurIPS 2024, ICLR 2024. Program Committee: AAAI 2024 &amp; 2025, ECIR 2024, CBMS 2024 (Multimodal Learning in Biomedical Applications), IR-RAG Workshop @ SIGIR 2024.</div>
+    </div>
+    <div class="service-row">
+      <span class="service-year">2023</span>
+      <div class="service-body">Program Committee: SIGIR 2023, SIAM International Conference on Data Mining 2023.</div>
+    </div>
+    <div class="service-row">
+      <span class="service-year">2022</span>
+      <div class="service-body">Program Committee: AISTATS 2023, AAAI 2023.</div>
     </div>
   </section>
 
   <footer>
     <p>© 2026 Maria Sofia Bucarelli</p>
-    <p>Sapienza University of Rome</p>
+    <p>COATI · Inria, CNRS, Université Côte d'Azur</p>
   </footer>
 
 </div>
