@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Maria Sofia Bucarelli</title>
-  <meta name="description" content="CNRS postdoctoral researcher in the COATI team (Inria, CNRS, Université Côte d'Azur). Research in machine learning: representation learning, graph neural networks, learning from noisy labels, and model merging." />
+  <meta name="description" content="CNRS postdoctoral researcher in the COATI team (Inria, CNRS, Université Côte d'Azur). Research in machine learning: robustness to noisy labels, expressivity and generalization, and model editing (merging and unlearning)." />
   <meta property="og:title" content="Maria Sofia Bucarelli" />
   <meta property="og:description" content="CNRS postdoctoral researcher in the COATI team (Inria, CNRS, Université Côte d'Azur)." />
   <meta property="og:type" content="website" />
@@ -29,6 +29,16 @@
       --bg: #ffffff;
       --surface: #f7f7f4;
       --card: #ffffff;
+
+      /* Research pillars (same palette as the slides) */
+      --p1: #2f7275;  --p1-bg: #e4eeee;   /* Robustness */
+      --p2: #4357cf;  --p2-bg: #e7eafa;   /* Expressivity & generalization */
+      --p3: #a8622a;  --p3-bg: #f6ece1;   /* Model editing */
+
+      /* Contribution roles */
+      --role-lead: #b08a2a;
+      --role-cosup: #3b5a9a;
+      --role-theory: #5b7f3b;
     }
 
     @media (prefers-color-scheme: dark) {
@@ -41,6 +51,13 @@
         --surface: #1e1e1b;
         --card: #1e1e1b;
         --accent-light: #0d3323;
+
+        --p1: #74b8bb;  --p1-bg: #16292a;
+        --p2: #95a2f2;  --p2-bg: #1c2040;
+        --p3: #dc9d66;  --p3-bg: #33240f;
+        --role-lead: #d9b45a;
+        --role-cosup: #8fa9e2;
+        --role-theory: #9cc27a;
       }
     }
 
@@ -57,7 +74,7 @@
     a { color: inherit; }
 
     .site {
-      max-width: 720px;
+      max-width: 760px;
       margin: 0 auto;
       padding: 2rem 1.5rem 4rem;
     }
@@ -81,11 +98,7 @@
       text-decoration: none;
       color: var(--text);
     }
-    .nav-links {
-      display: flex;
-      gap: 1.25rem;
-      flex-wrap: wrap;
-    }
+    .nav-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
     .nav-links a {
       font-size: 12px;
       color: var(--text-muted);
@@ -120,19 +133,11 @@
       color: var(--text-muted);
       font-size: 15px;
       line-height: 1.8;
-      max-width: 460px;
+      max-width: 480px;
     }
-    .hero-text p a {
-      color: var(--accent);
-      text-decoration: none;
-    }
+    .hero-text p a { color: var(--accent); text-decoration: none; }
     .hero-text p a:hover { text-decoration: underline; }
-    .hero-links {
-      display: flex;
-      gap: 0.6rem;
-      margin-top: 1.5rem;
-      flex-wrap: wrap;
-    }
+    .hero-links { display: flex; gap: 0.6rem; margin-top: 1.5rem; flex-wrap: wrap; }
     .btn {
       display: inline-flex;
       align-items: center;
@@ -148,11 +153,7 @@
       transition: background 0.15s;
     }
     .btn:hover { background: var(--surface); }
-    .btn-accent {
-      background: var(--accent);
-      color: #fff;
-      border-color: var(--accent);
-    }
+    .btn-accent { background: var(--accent); color: #fff; border-color: var(--accent); }
     .btn-accent:hover { background: var(--accent-hover); }
     .btn svg { width: 14px; height: 14px; flex-shrink: 0; }
     .avatar {
@@ -161,14 +162,7 @@
       border-radius: 50%;
       background: var(--accent-light);
       border: 0.5px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--ff-serif);
-      font-size: 26px;
-      color: var(--accent);
       flex-shrink: 0;
-      font-weight: 500;
     }
 
     /* Sections */
@@ -184,73 +178,191 @@
       border-bottom: 0.5px solid var(--border);
     }
 
-    /* Research — plain keywords */
-    .keyword-list {
-      font-size: 15px;
-      line-height: 1.9;
+    /* ---------- Research overview: one question, three pillars ---------- */
+    .research-question {
+      font-family: var(--ff-serif);
+      font-style: italic;
+      font-size: 18px;
+      line-height: 1.5;
       color: var(--text);
+      margin-bottom: 1.5rem;
+      max-width: 600px;
     }
-    .keyword-list .sep { color: var(--text-muted); margin: 0 0.4rem; }
-
-    /* Publications */
-    .year-group { margin-bottom: 1.75rem; }
-    .year-head {
-      font-family: var(--ff-mono);
-      font-size: 12px;
-      color: var(--accent);
-      letter-spacing: 0.06em;
-      margin-bottom: 0.9rem;
-    }
-    .pub-list { display: flex; flex-direction: column; gap: 1.25rem; }
-    .pub-item {
+    .pillars {
       display: grid;
-      grid-template-columns: 3px 1fr;
-      gap: 0 1rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.9rem;
     }
-    .pub-bar {
-      width: 3px;
-      background: var(--accent-light);
-      border-radius: 2px;
-      margin-top: 3px;
+    @media (max-width: 640px) {
+      .pillars { grid-template-columns: 1fr; }
     }
-    .pub-venue-tag {
+    .pillar {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      padding: 1.1rem 1.1rem 1.2rem;
+      border-radius: 8px;
+      background: var(--pc-bg);
+      border: 0.5px solid var(--border);
+      text-decoration: none;
+      color: var(--text);
+      transition: transform 0.15s, border-color 0.15s;
+    }
+    .pillar:hover { transform: translateY(-2px); border-color: var(--pc); }
+    .pillar-head { display: flex; align-items: center; gap: 0.7rem; }
+    .pillar-num {
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      background: var(--pc);
+      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--ff-serif);
+      font-size: 15px;
+      flex-shrink: 0;
+    }
+    @media (prefers-color-scheme: dark) { .pillar-num { color: var(--bg); } }
+    .pillar h3 {
+      font-family: var(--ff-serif);
+      font-size: 17px;
+      font-weight: 500;
+      line-height: 1.25;
+    }
+    .pillar p { font-size: 13.5px; line-height: 1.55; color: var(--text-muted); }
+    .pillar-tags {
+      margin-top: auto;
       font-family: var(--ff-mono);
-      font-size: 10px;
-      color: var(--text-muted);
-      letter-spacing: 0.04em;
-      margin-bottom: 3px;
+      font-size: 10.5px;
+      color: var(--pc);
+      letter-spacing: 0.02em;
+      line-height: 1.6;
     }
-    .pub-title {
+    .p1 { --pc: var(--p1); --pc-bg: var(--p1-bg); }
+    .p2 { --pc: var(--p2); --pc-bg: var(--p2-bg); }
+    .p3 { --pc: var(--p3); --pc-bg: var(--p3-bg); }
+
+    /* ---------- Publications grouped by pillar ---------- */
+    .pub-intro {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .pub-intro p { font-size: 13.5px; color: var(--text-muted); }
+    .legend { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .legend .role { font-size: 11px; }
+
+    .pillar-block { margin-bottom: 3rem; scroll-margin-top: 1.5rem; }
+    .pillar-eyebrow {
+      font-family: var(--ff-mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--pc);
+      margin-bottom: 0.35rem;
+    }
+    .pillar-title {
+      font-family: var(--ff-serif);
+      font-size: 23px;
+      font-weight: 500;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.25rem;
+    }
+
+    .contrib-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.8rem;
+    }
+    @media (max-width: 600px) {
+      .contrib-grid { grid-template-columns: 1fr; }
+    }
+    .contrib {
+      background: var(--card);
+      border: 0.5px solid var(--border-strong);
+      border-top: 2px solid var(--pc);
+      border-radius: 6px;
+      padding: 0.9rem 1rem 1rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .contrib.pending { border-top-style: dashed; }
+    .contrib-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: 0.4rem;
+    }
+    .contrib-venue {
+      font-family: var(--ff-mono);
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--pc);
+    }
+    .contrib.pending .contrib-venue { color: var(--text-muted); }
+    .contrib-title {
       font-size: 14px;
       font-weight: 500;
-      line-height: 1.4;
-      margin-bottom: 3px;
+      line-height: 1.45;
       color: var(--text);
     }
-    .pub-authors {
-      font-size: 12px;
+    .contrib-authors {
+      font-size: 11.5px;
       color: var(--text-muted);
-      margin-top: 3px;
+      margin-top: 0.4rem;
       font-family: var(--ff-mono);
+      line-height: 1.55;
     }
-    .pub-authors strong { font-weight: 500; color: var(--text); }
-    .pub-links {
-      display: flex;
-      gap: 0.75rem;
-      margin-top: 8px;
-      flex-wrap: wrap;
+    .contrib-authors strong { font-weight: 500; color: var(--text); }
+
+    .role {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: var(--ff-mono);
+      font-size: 10px;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
+    .role::before {
+      content: "";
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+    .role-lead   { color: var(--role-lead); }
+    .role-cosup  { color: var(--role-cosup); }
+    .role-theory { color: var(--role-theory); }
+
+    .pub-links { display: flex; gap: 0.6rem; margin-top: 0.7rem; flex-wrap: wrap; }
     .pub-link {
       font-family: var(--ff-mono);
       font-size: 11px;
       color: var(--accent);
       text-decoration: none;
-      border: 0.5px solid var(--accent-light);
+      border: 0.5px solid var(--border-strong);
       padding: 2px 8px;
       border-radius: 3px;
       transition: background 0.12s;
     }
     .pub-link:hover { background: var(--accent-light); }
+
+    /* Other publications (outside the three pillars) */
+    .other-block { --pc: var(--text-muted); }
+    .other-list .entry-main .venue {
+      font-family: var(--ff-mono);
+      font-size: 10.5px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
 
     /* Generic date + content list (talks, teaching, service, education) */
     .entry {
@@ -294,59 +406,6 @@
     }
     .service-body { font-size: 13.5px; line-height: 1.6; color: var(--text-muted); }
 
-    /* News strip */
-    .news-list { display: flex; flex-direction: column; gap: 0; }
-    .news-item {
-      display: grid;
-      grid-template-columns: 90px 1fr;
-      gap: 0 1rem;
-      padding: 0.65rem 0;
-      border-bottom: 0.5px solid var(--border);
-      align-items: baseline;
-    }
-    .news-date {
-      font-family: var(--ff-mono);
-      font-size: 11px;
-      color: var(--text-muted);
-      flex-shrink: 0;
-    }
-    .news-body { font-size: 14px; line-height: 1.5; }
-    .news-body a { color: var(--accent); text-decoration: none; }
-    .news-body a:hover { text-decoration: underline; }
-    .news-tag {
-      display: inline-block;
-      font-family: var(--ff-mono);
-      font-size: 9px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 1px 6px;
-      border-radius: 3px;
-      margin-right: 6px;
-      vertical-align: middle;
-      position: relative;
-      top: -1px;
-    }
-    .tag-paper   { background: #dbeafe; color: #1e40af; }
-    .tag-talk    { background: #fef9c3; color: #854d0e; }
-    .tag-award   { background: #fce7f3; color: #9d174d; }
-    .tag-other   { background: var(--surface); color: var(--text-muted); }
-    @media (prefers-color-scheme: dark) {
-      .tag-paper  { background: #1e3a5f; color: #93c5fd; }
-      .tag-talk   { background: #3d2e00; color: #fde68a; }
-      .tag-award  { background: #4a0d2e; color: #f9a8d4; }
-    }
-    .news-see-all {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      font-family: var(--ff-mono);
-      font-size: 11px;
-      color: var(--accent);
-      text-decoration: none;
-      margin-top: 1rem;
-    }
-    .news-see-all:hover { text-decoration: underline; }
-
     /* Footer */
     footer {
       border-top: 0.5px solid var(--border);
@@ -357,11 +416,7 @@
       flex-wrap: wrap;
       gap: 0.5rem;
     }
-    footer p {
-      font-family: var(--ff-mono);
-      font-size: 11px;
-      color: var(--text-muted);
-    }
+    footer p { font-family: var(--ff-mono); font-size: 11px; color: var(--text-muted); }
   </style>
 </head>
 <body>
@@ -414,11 +469,27 @@
     <img src="photo.jpg" alt="Maria Sofia Bucarelli" class="avatar" style="object-fit:cover;">
   </div>
 
-  <!-- Research -->
+  <!-- ===================== Research: one question, three pillars ===================== -->
   <section id="research">
-    <p class="section-label">Research interests</p>
-    <div class="keyword-list">
-      Representation Learning <span class="sep">·</span> Learning from Noisy Labels <span class="sep">·</span> Machine Unlearning <span class="sep">·</span> Graph Neural Networks <span class="sep">·</span> Model Merging <span class="sep">·</span> Generalization Bounds <span class="sep">·</span> Approximation Properties of Neural Networks
+    <p class="section-label">Research</p>
+    <p class="research-question">How do we build deep learning models we can trust and reliably use, combine, and correct?</p>
+
+    <div class="pillars">
+      <a class="pillar p1" href="#robustness">
+        <div class="pillar-head"><span class="pillar-num">1</span><h3>Robustness</h3></div>
+        <p>How do we learn when the labels are imperfect?</p>
+        <div class="pillar-tags">noisy labels · multiple annotators · graph label noise</div>
+      </a>
+      <a class="pillar p2" href="#generalization">
+        <div class="pillar-head"><span class="pillar-num">2</span><h3>Expressivity &amp; Generalization</h3></div>
+        <p>What can networks represent, and how well do they generalize?</p>
+        <div class="pillar-tags">generalization bounds · approximation · loss landscapes</div>
+      </a>
+      <a class="pillar p3" href="#model-editing">
+        <div class="pillar-head"><span class="pillar-num">3</span><h3>Model Editing</h3></div>
+        <p>How do we combine and correct trained models, with guarantees?</p>
+        <div class="pillar-tags">model merging · task arithmetic · machine unlearning</div>
+      </a>
     </div>
   </section>
 
@@ -442,130 +513,194 @@
     </div>
   </section>
 
-  <!-- Publications -->
+  <!-- ===================== Publications by pillar ===================== -->
   <section id="publications">
     <p class="section-label">Publications</p>
 
-    <!-- 2026 -->
-    <div class="year-group">
-      <p class="year-head">2026</p>
-      <div class="pub-list">
-        <div class="pub-item"><div class="pub-bar"></div><div>
-          <p class="pub-venue-tag">ICLR 2026</p>
-          <p class="pub-title">MASS: MoErging through Adaptive Subspace Selection</p>
-          <p class="pub-authors">D Crisostomi, A Zirilli, AA Gargiulo, <strong>MS Bucarelli</strong>, S Scardapane, F Silvestri, I Masi, E Rodolà</p>
-        </div></div>
-        <div class="pub-item"><div class="pub-bar"></div><div>
-          <p class="pub-venue-tag">AISTATS 2026</p>
-          <p class="pub-title">The Majority Vote Paradigm Shift: When Popular Meets Optimal</p>
-          <p class="pub-authors">A Purificato, <strong>MS Bucarelli</strong>, AK Nelakanti, A Bacciu, F Silvestri, A Mantrach</p>
-        </div></div>
-        <div class="pub-item"><div class="pub-bar"></div><div>
-          <p class="pub-venue-tag">AISTATS 2026</p>
-          <p class="pub-title">Rank Lifting and Random Non-Linear Maps</p>
-          <p class="pub-authors">A Drago, <strong>MS Bucarelli</strong>, F Caso, F Siciliano, F Silvestri, L Becchetti</p>
-        </div></div>
-        <div class="pub-item"><div class="pub-bar"></div><div>
-          <p class="pub-venue-tag">ECML-PKDD 2026</p>
-          <p class="pub-title">Subtract the Corruption: Training-Data-Free Corrective Machine Unlearning using Task Arithmetic</p>
-          <p class="pub-authors">M Mozafari, F Wani, <strong>MS Bucarelli</strong>, F Silvestri</p>
-        </div></div>
+    <div class="pub-intro">
+      <p>Grouped by research axis. My role in each contribution:</p>
+      <div class="legend">
+        <span class="role role-lead">Lead</span>
+        <span class="role role-cosup">Co-supervision</span>
+        <span class="role role-theory">Theoretical</span>
       </div>
     </div>
 
-    <!-- 2025 -->
-    <div class="year-group">
-      <p class="year-head">2025</p>
-      <div class="pub-list">
-        <div class="pub-item"><div class="pub-bar"></div><div>
-          <p class="pub-venue-tag">CVPR 2025</p>
-          <p class="pub-title">Task Singular Vectors: Reducing Task Interference in Model Merging</p>
-          <p class="pub-authors">AA Gargiulo, D Crisostomi, <strong>MS Bucarelli</strong>, S Scardapane, F Silvestri, E Rodolà</p>
-        </div></div>
-        <div class="pub-item"><div class="pub-bar"></div><div>
-          <p class="pub-venue-tag">TMLR 2025</p>
-          <p class="pub-title">Hypergraph Neural Networks through the Lens of Message Passing: A Common Perspective to Homophily and Architecture Design</p>
-          <p class="pub-authors">L Telyatnikov, <strong>MS Bucarelli</strong>, G Bernardez, O Zaghen, S Scardapane, P Liò</p>
-        </div></div>
-        <div class="pub-item"><div class="pub-bar"></div><div>
-          <p class="pub-venue-tag">IJCNN 2025</p>
-          <p class="pub-title">Link Prediction under Heterophily: A Physics-Inspired Graph Neural Network Approach</p>
-          <p class="pub-authors">AG Di Francesco, F Caso, <strong>MS Bucarelli</strong>, F Silvestri</p>
-        </div></div>
-        <div class="pub-item"><div class="pub-bar"></div><div>
-          <p class="pub-venue-tag">UniReps Workshop (NeurIPS)</p>
-          <p class="pub-title">On Task Vectors and Gradients</p>
-          <p class="pub-authors">L Zhou, D Solombrino, D Crisostomi, <strong>MS Bucarelli</strong>, GA D'Inverno, F Silvestri, E Rodolà</p>
-        </div></div>
-      </div>
-    </div>
+    <!-- ---------- Pillar 1 · Robustness ---------- -->
+    <div class="pillar-block p1" id="robustness">
+      <p class="pillar-eyebrow">01 · Robustness</p>
+      <h2 class="pillar-title">Principled learning from noisy labels</h2>
+      <div class="contrib-grid">
 
-    <!-- 2024 -->
-    <div class="year-group">
-      <p class="year-head">2024</p>
-      <div class="pub-list">
-        <div class="pub-item"><div class="pub-bar"></div><div>
-          <p class="pub-venue-tag">Neural Networks 2024</p>
-          <p class="pub-title">A Topological Description of Loss Surfaces Based on Betti Numbers</p>
-          <p class="pub-authors"><strong>MS Bucarelli</strong>, GA D'Inverno, M Bianchini, F Scarselli, F Silvestri</p>
-        </div></div>
-        <div class="pub-item"><div class="pub-bar"></div><div>
-          <p class="pub-venue-tag">IJCNN 2024</p>
-          <p class="pub-title">Learning with Noisy Labels through Learnable Weighting and Centroid Similarity</p>
-          <p class="pub-authors">F Wani, <strong>MS Bucarelli</strong>, F Silvestri</p>
-        </div></div>
-        <div class="pub-item"><div class="pub-bar"></div><div>
-          <p class="pub-venue-tag">Workshop @ ICML 2024</p>
-          <p class="pub-title">&#8711;&#964;: Gradient-based and Task-Agnostic Machine Unlearning</p>
-          <p class="pub-authors">D Trippa, C Campagnano, <strong>MS Bucarelli</strong>, G Tolomei, F Silvestri</p>
-        </div></div>
-      </div>
-    </div>
+        <article class="contrib">
+          <div class="contrib-meta"><span class="contrib-venue">AISTATS 2026</span><span class="role role-lead">Lead</span></div>
+          <h3 class="contrib-title">The Majority Vote Paradigm Shift: When Popular Meets Optimal</h3>
+          <p class="contrib-authors">A Purificato, <strong>MS Bucarelli</strong>, AK Nelakanti, A Bacciu, F Silvestri, A Mantrach</p>
+        </article>
 
-    <!-- 2023 -->
-    <div class="year-group">
-      <p class="year-head">2023</p>
-      <div class="pub-list">
-        <div class="pub-item"><div class="pub-bar"></div><div>
-          <p class="pub-venue-tag">NeurIPS 2023</p>
-          <p class="pub-title">On Generalization Bounds for Projective Clustering</p>
-          <p class="pub-authors"><strong>MS Bucarelli</strong>, MF Larsen, C Schwiegelshohn, MB Toftrup</p>
+        <article class="contrib">
+          <div class="contrib-meta"><span class="contrib-venue">EMNLP 2026</span><span class="role role-theory">Theoretical</span></div>
+          <h3 class="contrib-title">Select, Label, Evaluate: Active Testing in NLP</h3>
+          <!-- TODO: <p class="contrib-authors">…, <strong>MS Bucarelli</strong>, …</p> -->
+        </article>
+
+        <article class="contrib">
+          <div class="contrib-meta"><span class="contrib-venue">EMNLP 2026</span><span class="role role-theory">Theoretical</span></div>
+          <h3 class="contrib-title">QUORUM: QUality-Optimized Routing Using Multiple annotators</h3>
+          <!-- TODO: authors -->
+        </article>
+
+        <article class="contrib">
+          <div class="contrib-meta"><span class="contrib-venue">IJCNN 2025</span><span class="role role-cosup">Co-supervision</span></div>
+          <h3 class="contrib-title">Learning with Noisy Graph Labels — Challenge (organizer)</h3>
           <div class="pub-links">
-            <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jEBzTnsAAAAJ&citation_for_view=jEBzTnsAAAAJ:9yKSN-GCB0IC" class="pub-link" target="_blank" rel="noopener">Scholar &#8599;</a>
+            <a href="https://2025.ijcnn.org/program/competitions" class="pub-link" target="_blank" rel="noopener">Webpage &#8599;</a>
           </div>
-        </div></div>
-        <div class="pub-item"><div class="pub-bar"></div><div>
-          <p class="pub-venue-tag">CVPR 2023</p>
-          <p class="pub-title">Leveraging Inter-Rater Agreement for Classification in the Presence of Noisy Labels</p>
-          <p class="pub-authors"><strong>MS Bucarelli</strong>, L Cassano, F Siciliano, A Mantrach, F Silvestri</p>
+        </article>
+
+        <article class="contrib">
+          <div class="contrib-meta"><span class="contrib-venue">IJCNN 2024</span><span class="role role-cosup">Co-supervision</span></div>
+          <h3 class="contrib-title">Learning with Noisy Labels through Learnable Weighting and Centroid Similarity</h3>
+          <p class="contrib-authors">F Wani, <strong>MS Bucarelli</strong>, F Silvestri</p>
+        </article>
+
+        <article class="contrib">
+          <div class="contrib-meta"><span class="contrib-venue">CVPR 2023</span><span class="role role-lead">Lead</span></div>
+          <h3 class="contrib-title">Leveraging Inter-Rater Agreement for Classification in the Presence of Noisy Labels</h3>
+          <p class="contrib-authors"><strong>MS Bucarelli</strong>, L Cassano, F Siciliano, A Mantrach, F Silvestri</p>
           <div class="pub-links">
             <a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Bucarelli_Leveraging_Inter-Rater_Agreement_for_Classification_in_the_Presence_of_Noisy_CVPR_2023_paper.pdf" class="pub-link" target="_blank" rel="noopener">PDF &#8599;</a>
             <a href="https://youtu.be/khpOlR9u1U8" class="pub-link" target="_blank" rel="noopener">Video &#8599;</a>
           </div>
-        </div></div>
-        <div class="pub-item"><div class="pub-bar"></div><div>
-          <p class="pub-venue-tag">Sensors 2023</p>
-          <p class="pub-title">False Data Injection Impact on High RES Power Systems with Centralized Voltage Regulation Architecture</p>
-          <p class="pub-authors">T Bragatto, MA Bucarelli, <strong>MS Bucarelli</strong>, F Carere, A Geri, M Maccioni</p>
-          <div class="pub-links">
-            <a href="https://www.mdpi.com/1424-8220/23/5/2557" class="pub-link" target="_blank" rel="noopener">PDF &#8599;</a>
-          </div>
-        </div></div>
+        </article>
+
+        <article class="contrib pending">
+          <div class="contrib-meta"><span class="contrib-venue">Under review</span><span class="role role-cosup">Co-supervision</span></div>
+          <h3 class="contrib-title">The Energy of Memorization: Why Graph-Level Label Noise Sharpens Representations and How to Stop It</h3>
+        </article>
+
+        <article class="contrib pending">
+          <div class="contrib-meta"><span class="contrib-venue">Under review</span><span class="role role-cosup">Co-supervision</span></div>
+          <h3 class="contrib-title">Survey and Benchmark of Graph Learning under Label Noise</h3>
+        </article>
+
       </div>
     </div>
 
-    <!-- 2022 -->
-    <div class="year-group">
-      <p class="year-head">2022</p>
-      <div class="pub-list">
-        <div class="pub-item"><div class="pub-bar"></div><div>
-          <p class="pub-venue-tag">IJCNN 2022</p>
-          <p class="pub-title">Newron: A New Generalization of the Artificial Neuron to Enhance the Interpretability of Neural Networks</p>
-          <p class="pub-authors">F Siciliano, <strong>MS Bucarelli</strong>, G Tolomei, F Silvestri</p>
+    <!-- ---------- Pillar 2 · Expressivity & Generalization ---------- -->
+    <div class="pillar-block p2" id="generalization">
+      <p class="pillar-eyebrow">02 · Expressivity &amp; Generalization</p>
+      <h2 class="pillar-title">Understanding what models can do</h2>
+      <div class="contrib-grid">
+
+        <article class="contrib">
+          <div class="contrib-meta"><span class="contrib-venue">AISTATS 2026</span><span class="role role-theory">Theoretical</span></div>
+          <h3 class="contrib-title">Rank Lifting and Random Non-Linear Maps</h3>
+          <p class="contrib-authors">A Drago, <strong>MS Bucarelli</strong>, F Caso, F Siciliano, F Silvestri, L Becchetti</p>
+        </article>
+
+        <article class="contrib">
+          <div class="contrib-meta"><span class="contrib-venue">Neural Networks 2024</span><span class="role role-lead">Lead</span></div>
+          <h3 class="contrib-title">A Topological Description of Loss Surfaces Based on Betti Numbers</h3>
+          <p class="contrib-authors"><strong>MS Bucarelli</strong>, GA D'Inverno, M Bianchini, F Scarselli, F Silvestri</p>
+        </article>
+
+        <article class="contrib">
+          <div class="contrib-meta"><span class="contrib-venue">NeurIPS 2023</span><span class="role role-theory">Theoretical</span></div>
+          <h3 class="contrib-title">On Generalization Bounds for Projective Clustering</h3>
+          <p class="contrib-authors"><strong>MS Bucarelli</strong>, MF Larsen, C Schwiegelshohn, MB Toftrup</p>
+          <div class="pub-links">
+            <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jEBzTnsAAAAJ&citation_for_view=jEBzTnsAAAAJ:9yKSN-GCB0IC" class="pub-link" target="_blank" rel="noopener">Scholar &#8599;</a>
+          </div>
+        </article>
+
+        <article class="contrib">
+          <div class="contrib-meta"><span class="contrib-venue">IJCNN 2022</span><span class="role role-theory">Theoretical</span></div>
+          <h3 class="contrib-title">Newron: A New Generalization of the Artificial Neuron to Enhance the Interpretability of Neural Networks</h3>
+          <p class="contrib-authors">F Siciliano, <strong>MS Bucarelli</strong>, G Tolomei, F Silvestri</p>
           <div class="pub-links">
             <a href="https://arxiv.org/abs/2110.02775" class="pub-link" target="_blank" rel="noopener">PDF &#8599;</a>
           </div>
-        </div></div>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- ---------- Pillar 3 · Model editing ---------- -->
+    <div class="pillar-block p3" id="model-editing">
+      <p class="pillar-eyebrow">03 · Model editing</p>
+      <h2 class="pillar-title">A toolkit for merging and correcting models</h2>
+      <div class="contrib-grid">
+
+        <article class="contrib">
+          <div class="contrib-meta"><span class="contrib-venue">ICLR 2026</span><span class="role role-theory">Theoretical</span></div>
+          <h3 class="contrib-title">MASS: MoErging through Adaptive Subspace Selection</h3>
+          <p class="contrib-authors">D Crisostomi, A Zirilli, AA Gargiulo, <strong>MS Bucarelli</strong>, S Scardapane, F Silvestri, I Masi, E Rodolà</p>
+        </article>
+
+        <article class="contrib">
+          <div class="contrib-meta"><span class="contrib-venue">ECML-PKDD 2026</span><span class="role role-cosup">Co-supervision</span></div>
+          <h3 class="contrib-title">Subtract the Corruption: Training-Data-Free Corrective Machine Unlearning using Task Arithmetic</h3>
+          <p class="contrib-authors">M Mozafari, F Wani, <strong>MS Bucarelli</strong>, F Silvestri</p>
+        </article>
+
+        <article class="contrib">
+          <div class="contrib-meta"><span class="contrib-venue">EMNLP 2026</span><span class="role role-cosup">Co-supervision</span></div>
+          <h3 class="contrib-title">Same Answer, Different Representations: Hidden Instability in VLMs</h3>
+          <!-- TODO: authors -->
+        </article>
+
+        <article class="contrib">
+          <div class="contrib-meta"><span class="contrib-venue">CVPR 2025</span><span class="role role-lead">Lead</span></div>
+          <h3 class="contrib-title">Task Singular Vectors: Reducing Task Interference in Model Merging</h3>
+          <p class="contrib-authors">AA Gargiulo, D Crisostomi, <strong>MS Bucarelli</strong>, S Scardapane, F Silvestri, E Rodolà</p>
+        </article>
+
+        <article class="contrib">
+          <div class="contrib-meta"><span class="contrib-venue">UniReps @ NeurIPS 2025</span><span class="role role-theory">Theoretical</span></div>
+          <h3 class="contrib-title">On Task Vectors and Gradients</h3>
+          <p class="contrib-authors">L Zhou, D Solombrino, D Crisostomi, <strong>MS Bucarelli</strong>, GA D'Inverno, F Silvestri, E Rodolà</p>
+        </article>
+
+        <article class="contrib">
+          <div class="contrib-meta"><span class="contrib-venue">Workshop @ ICML 2024</span><span class="role role-cosup">Co-supervision</span></div>
+          <h3 class="contrib-title">&#8711;&#964;: Gradient-based and Task-Agnostic Machine Unlearning</h3>
+          <p class="contrib-authors">D Trippa, C Campagnano, <strong>MS Bucarelli</strong>, G Tolomei, F Silvestri</p>
+        </article>
+
+        <article class="contrib pending">
+          <div class="contrib-meta"><span class="contrib-venue">Under review</span><span class="role role-cosup">Co-supervision</span></div>
+          <h3 class="contrib-title">Compositional Generalization in Autoregressive Models via Logit Composition</h3>
+        </article>
+
+        <article class="contrib pending">
+          <div class="contrib-meta"><span class="contrib-venue">Under review</span><span class="role role-cosup">Co-supervision</span></div>
+          <h3 class="contrib-title">Cross-Modal Attention Acts as a Frequency Filter: Why Verbose Prompts Improve Robustness in Vision–Language Models</h3>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- ---------- Papers not assigned to a pillar ---------- -->
+    <div class="pillar-block other-block" id="other-publications">
+      <p class="pillar-eyebrow">Other publications</p>
+      <div class="other-list">
+        <div class="entry">
+          <span class="entry-date">TMLR 2025</span>
+          <div class="entry-main"><strong>Hypergraph Neural Networks through the Lens of Message Passing: A Common Perspective to Homophily and Architecture Design</strong><br>
+            <span class="meta">L Telyatnikov, <strong>MS Bucarelli</strong>, G Bernardez, O Zaghen, S Scardapane, P Liò</span></div>
+        </div>
+        <div class="entry">
+          <span class="entry-date">IJCNN 2025</span>
+          <div class="entry-main"><strong>Link Prediction under Heterophily: A Physics-Inspired Graph Neural Network Approach</strong><br>
+            <span class="meta">AG Di Francesco, F Caso, <strong>MS Bucarelli</strong>, F Silvestri</span></div>
+        </div>
+        <div class="entry">
+          <span class="entry-date">Sensors 2023</span>
+          <div class="entry-main"><strong>False Data Injection Impact on High RES Power Systems with Centralized Voltage Regulation Architecture</strong><br>
+            <span class="meta">T Bragatto, MA Bucarelli, <strong>MS Bucarelli</strong>, F Carere, A Geri, M Maccioni &middot;
+              <a href="https://www.mdpi.com/1424-8220/23/5/2557" target="_blank" rel="noopener">PDF</a></span></div>
+        </div>
       </div>
     </div>
 
